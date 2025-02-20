@@ -175,17 +175,7 @@ export const GlobalProvider = ({ children }) => {
         setDisplayedEntry(defaultEntry);
       }
     }, [globalEntries.length]);
-    /*
-    useEffect(() => {
-      initEntries();
-    if (addGlobalEntry.length === 0) {
-        throw new Error("No entries found on init");
-      }
-      setDisplayedEntry(globalEntries[0]);
-
-    }, [globalUser]); */
-
-     
+         
     return (
       <GlobalContext.Provider value={
         { globalEntries, displayedEntry, globalUser, createGlobalEntry, 
@@ -199,13 +189,3 @@ export const GlobalProvider = ({ children }) => {
   export const useGlobalContext = () => {
     return useContext(GlobalContext);
   };
-/*
-export default function GlobalContext({ children }) {
-    const [context, setContext] = useState<GlobalContextProps>(GlobalContextState);
-    return (
-        <GlobalStateContext.Provider value={context}>
-            {children}
-        </GlobalStateContext.Provider>
-    );
-};
-*/

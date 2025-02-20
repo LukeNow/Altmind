@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: 'teste@teste.com'
+#      PGADMIN_DEFAULT_PASSWORD: 'teste'
+#    ports:
+#      - 16543:80
+#    volumes:
+#      - ./servers.json:/pgadmin4/servers.json
+#    networks:
+#      - postgres-db-network
+
+volumes:
+  postgres_data:
+   # driver: local
+   # driver_opts:
+   #   type: none
+   #   o: bind
+   #   device: ./data
+
+#networks:
+#    postgres-db-network:
+#        driver: bridge
+      
